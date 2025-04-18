@@ -37,7 +37,7 @@ class GeminiModel:
 
 
 if __name__ == "__main__":
-    os.environ["GOOGLE_API_KEY"] = "AIzaSyDOwA6QzNY5ezsX03nfkCU0yRR0_7Pp3RY"
+    os.environ["GOOGLE_API_KEY"] = "GOOGLE_API_KEY"
     model = GeminiModel()
     print(model([
         {"role": "system", "content": "You are a helpful cooking assistant."},

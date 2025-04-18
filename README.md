@@ -94,13 +94,7 @@ python agent.py
   {"item": "chicken breast", "quantity": "1 lb", "category": "protein", "expiry": "2025-05-01"},
   {"item": "olive oil", "quantity": "1 tbsp", "category": "oil", "expiry": "2025-06-01"},
   {"item": "broccoli", "quantity": "1 head", "category": "vegetable", "expiry": "2025-04-25"},
-  {"item": "red bell pepper", "quantity": "1", "category": "vegetable", "expiry": "2025-04-25"},
-  {"item": "soy sauce", "quantity": "1/4 cup", "category": "condiment", "expiry": "2025-07-01"},
-  {"item": "honey", "quantity": "2 tbsp", "category": "sweetener", "expiry": "2026-01-01"},
-  {"item": "rice vinegar", "quantity": "1 tbsp", "category": "condiment", "expiry": "2026-01-01"},
-  {"item": "garlic", "quantity": "2 cloves", "category": "spice", "expiry": "2025-05-01"},
-  {"item": "ginger", "quantity": "1 tsp", "category": "spice", "expiry": "2025-05-01"},
-  {"item": "cornstarch", "quantity": "1 tsp", "category": "thickener", "expiry": "2025-12-01"}
+  {"item": "red bell pepper", "quantity": "1", "category": "vegetable", "expiry": "2025-04-25"}
 ]
 ```
 
@@ -151,7 +145,7 @@ Enjoy your healthy meal!
 - **DuckDuckGoSearchTool** – used as a web search tool to find relevant recipes and nutritional content online  
 
 ---
+## 🧠 Flow Chart
+![Recipe_Generator](https://github.com/user-attachments/assets/9975df7b-551b-4864-bae1-110e753ff762)
 
-## 📜 License
-
-MIT License — free to use, modify, and share.
+---

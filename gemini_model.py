@@ -9,8 +9,7 @@ class Message:
 
 class GeminiModel:
     def __init__(self, model="gemini-2.5-pro-preview-03-25", temperature=0.7):
-        #genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-        genai.configure(api_key='AIzaSyDOwA6QzNY5ezsX03nfkCU0yRR0_7Pp3RY')
+        genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
         self.client = genai.GenerativeModel(model)
         self.temperature = temperature
 

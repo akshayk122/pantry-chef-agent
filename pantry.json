@@ -1,0 +1,110 @@
+[
+  {
+    "item": "broccoli",
+    "quantity": "1 head",
+    "category": "vegetable",
+    "expiry": "2025-04-18"
+  },
+  {
+    "item": "soy sauce",
+    "quantity": "100ml",
+    "category": "condiment",
+    "expiry": "2025-06-01"
+  },
+  {
+    "item": "chickpeas",
+    "quantity": "1 can",
+    "category": "protein",
+    "expiry": "2025-08-10"
+  },
+  {
+    "item": "chicken breast",
+    "quantity": "300g",
+    "category": "non-veg",
+    "expiry": "2025-04-20"
+  },
+  {
+    "item": "eggs",
+    "quantity": "6 pieces",
+    "category": "non-veg",
+    "expiry": "2025-04-19"
+  },
+  {
+    "item": "salmon fillet",
+    "quantity": "2 pieces",
+    "category": "non-veg",
+    "expiry": "2025-04-21"
+  },
+  {
+    "item": "shrimp",
+    "quantity": "200g",
+    "category": "non-veg",
+    "expiry": "2025-04-21"
+  },
+  {
+    "item": "spinach",
+    "quantity": "150g",
+    "category": "vegetable",
+    "expiry": "2025-04-20"
+  },
+  {
+    "item": "olive oil",
+    "quantity": "250ml",
+    "category": "condiment",
+    "expiry": "2025-12-01"
+  },
+  {
+    "item": "brown rice",
+    "quantity": "500g",
+    "category": "grain",
+    "expiry": "2026-01-15"
+  },
+  {
+    "item": "garlic",
+    "quantity": "3 cloves",
+    "category": "spice",
+    "expiry": "2025-05-05"
+  },
+  {
+    "item": "ginger",
+    "quantity": "50g",
+    "category": "spice",
+    "expiry": "2025-05-12"
+  },
+  {
+    "item": "lemon",
+    "quantity": "2 pieces",
+    "category": "fruit",
+    "expiry": "2025-04-17"
+  },
+  {
+    "item": "quinoa",
+    "quantity": "300g",
+    "category": "grain",
+    "expiry": "2026-02-28"
+  },
+  {
+    "item": "coconut milk",
+    "quantity": "1 can",
+    "category": "dairy-alternative",
+    "expiry": "2025-09-30"
+  },
+  {
+    "item": "tomato paste",
+    "quantity": "100g",
+    "category": "condiment",
+    "expiry": "2025-07-10"
+  },
+  {
+    "item": "red lentils",
+    "quantity": "250g",
+    "category": "protein",
+    "expiry": "2026-01-01"
+  },
+  {
+    "item": "onion",
+    "quantity": "2 pieces",
+    "category": "vegetable",
+    "expiry": "2025-04-19"
+  }
+]

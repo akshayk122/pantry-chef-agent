@@ -1,0 +1,22 @@
+# Ignore Python bytecode files
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environment
+myrecp/
+
+# Ignore environment variables
+.env
+
+# Ignore system files
+.DS_Store
+
+# Ignore logs
+*.log
+
+# Ignore any temporary files
+*.tmp
+*.temp
+
+# Ignore tools cache
+tools/__pycache__/

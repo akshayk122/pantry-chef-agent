@@ -7,7 +7,7 @@ from smolagents import CodeAgent, HfApiModel
 from gemini_model import GeminiModel
 import os
 
-app=Flask()
+app = Flask(__name__)
 
 @app.route('/')
 def index():

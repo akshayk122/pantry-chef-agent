@@ -1,0 +1,55 @@
+# Enable the Artifact Registry API for the project
+gcloud services enable artifactregistry.googleapis.com
+
+# Create a Docker repository in the Artifact Registry
+gcloud artifacts repositories create my-docker-repo \
+  --repository-format=docker \
+  --location=us-east1 \
+  --description="Docker repo"
+
+# Configure Docker to authenticate with the Artifact Registry
+gcloud auth configure-docker us-east1-docker.pkg.dev
+
+# Dockerfile content to build the Python application image
+FROM python:3.10-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+CMD ["python", "main.py"]
+
+# Ignore unnecessary files and directories during Docker build
+#docker ignore
+__pycache__/
+*.pyc
+.env
+.git
+
+# Build the Docker image and tag it for the Artifact Registry
+docker build --platform linux/amd64 -t us-east1-docker.pkg.dev/livetranscript-453603/my-docker-repo/my-service:latest .
+
+# Push the Docker image to the Artifact Registry
+docker push us-east1-docker.pkg.dev/livetranscript-453603/my-docker-repo/my-service:latest
+
+# Grant the service account permission to write to the Artifact Registry
+gcloud projects add-iam-policy-binding livetranscript-453603 \
+  --member="serviceAccount:YOUR_SA" \
+  --role="roles/artifactregistry.writer"
+
+# Enable the Cloud Run API for the project
+gcloud services enable run.googleapis.com
+
+# Deploy the service to Cloud Run using the Docker image
+gcloud run deploy my-service \
+  --image=us-east1-docker.pkg.dev/livetranscript-453603/my-docker-repo/my-service:latest \
+  --platform=managed \
+  --region=us-east1 \
+  --allow-unauthenticated \
+  --memory=512Mi \
+  --port=8080
+
+# Set environment variables for the deployed service
+--set-env-vars ENV=prod,API_KEY=xyz
+
+# URL of the deployed service
+https://my-service-<hash>-uc.a.run.app

@@ -3,11 +3,11 @@
 
 # 🤖 AI Recipe Generator
 
-An intelligent recipe assistant that suggests personalized meal ideas based on your pantry, dietary goals, and preferences powered by Gemini + smolagents.
+This project is an intelligent recipe assistant designed to help users discover personalized meal ideas. By leveraging the power of Google's Gemini model and the `smolagents` framework, it considers your available pantry ingredients, dietary goals, and preferences to generate creative and practical recipes. Whether you're looking to use up what you have, stick to a specific diet, or simply find inspiration for your next meal, this AI Recipe Generator is here to assist!
 
 ---
 
-### 🚀 Features
+## 🚀 Features
 
 - 🧠 Uses Google Gemini to plan recipes step-by-step  
 - 🧂 Checks your pantry and suggests what you can cook  
@@ -17,7 +17,7 @@ An intelligent recipe assistant that suggests personalized meal ideas based on y
 
 ---
 
-### 🗂️ Project Structure
+## 🗂️ Project Structure
 
 ```
 project-root/
@@ -34,7 +34,7 @@ project-root/
 
 ---
 
-### 🧪 How It Works
+## 🧪 How It Works
 
 1. You define a goal like `"lose weight"` and a diet like `"veg"` or `"meat"`  
 2. The agent looks at your pantry and constructs a search query  
@@ -142,10 +142,39 @@ Enjoy your healthy meal!
 
 - [`smolagents`](https://github.com/huggingface/smolagents) – lightweight agent framework used to develop the recipe agent with dynamic tool calling and planning  
 - [`google-generativeai`](https://pypi.org/project/google-generativeai/) – used to integrate the Gemini model as the core LLM behind recipe generation  
-- **DuckDuckGoSearchTool** – used as a web search tool to find relevant recipes and nutritional content online  
+- `DuckDuckGoSearchTool` – used as a web search tool to find relevant recipes and nutritional content online
 
 ---
-## 🧠 Flow Chart
+## 📊 Flow Chart
 ![Recipe_Generator](https://github.com/user-attachments/assets/9975df7b-551b-4864-bae1-110e753ff762)
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! If you have ideas for new features, improvements, or bug fixes, please follow these steps:
+
+1.  **Fork the Repository:** Create your own fork of the project.
+2.  **Create a Branch:** Make a new branch in your fork for your changes.
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
+3.  **Make Changes:** Implement your feature or bug fix.
+4.  **Test Your Changes:** Ensure your changes work as expected and do not break existing functionality.
+5.  **Commit Your Changes:** Write clear and concise commit messages.
+    ```bash
+    git commit -m "Add: Your new feature description"
+    ```
+6.  **Push to Your Fork:**
+    ```bash
+    git push origin feature/your-feature-name
+    ```
+7.  **Submit a Pull Request:** Open a pull request from your fork to the main repository's `main` branch. Provide a clear description of your changes.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---

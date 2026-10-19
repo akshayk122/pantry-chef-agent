@@ -1,62 +1,93 @@
+# PantryChef AI
 
+PantryChef AI is a smart recipe assistant that turns what you already have at home into delicious, practical meal ideas. It combines your pantry inventory, dietary goals, and web research to suggest recipes that are relevant, nutritious, and easy to cook.
 
-
-# 🤖 AI Recipe Generator
-
-This project is an intelligent recipe assistant designed to help users discover personalized meal ideas. By leveraging the power of Google's Gemini model and the `smolagents` framework, it considers your available pantry ingredients, dietary goals, and preferences to generate creative and practical recipes. Whether you're looking to use up what you have, stick to a specific diet, or simply find inspiration for your next meal, this AI Recipe Generator is here to assist!
-
----
-
-## 🚀 Features
-
-- 🧠 Uses Google Gemini to plan recipes step-by-step  
-- 🧂 Checks your pantry and suggests what you can cook  
-- 🔎 Searches for real recipes online using DuckDuckGo  
-- 🧮 Estimates calories for ingredients  
-- 🧰 Modular tool system: search, pantry, memory, calorie estimator  
+Built with Google's Gemini model and the `smolagents` framework, PantryChef AI can reason through your ingredients, search for suitable recipes, estimate calories, and produce a final recommendation tailored to your needs.
 
 ---
 
-## 🗂️ Project Structure
+## Why this project stands out
 
-```
-project-root/
-│
-├── agent.py                  # Main script to run the recipe agent
-├── gemini_model.py           # Custom wrapper for Gemini API
-├── pantry.json               # JSON file with pantry items
+- Uses your actual pantry items instead of generic recipe suggestions
+- Adapts to a goal such as weight loss, muscle gain, or simple home cooking
+- Supports dietary preferences like meat, veg, or vegan
+- Pulls in web-based recipe inspiration and nutrition data
+- Provides a coherent final output with ingredients, instructions, and calorie estimates
+
+---
+
+## Key features
+
+- 🧠 AI-powered recipe planning using Gemini
+- 🛒 Pantry-aware suggestions based on saved ingredients
+- 🔎 Web search for relevant recipe ideas and cooking inspiration
+- 📏 Calorie estimation for ingredients and meals
+- 🧰 Modular tool-based architecture for search, memory, pantry access, and calculations
+- 🌐 Simple Flask app interface to run the assistant locally or in deployment environments
+
+---
+
+## Project architecture
+
+The project is organized around a lightweight agent system:
+
+- `agent.py` — Flask application and main agent orchestration
+- `gemini_model.py` — wrappers around the Gemini API
+- `pantry.json` — pantry inventory data
+- `tools/` — reusable tools for pantry lookup, search, memory, and calorie estimation
+
+This makes it easy to extend with new features or agent capabilities.
+
+---
+
+## Repository structure
+
+```text
+pantry-chef-agent/
+├── agent.py                 # Flask server and recipe agent entry point
+├── gemini_model.py          # Gemini API wrapper
+├── pantry.json              # Pantry inventory source
+├── requirements.txt         # Python dependencies
+├── Dockerfile               # Container setup
 ├── tools/
-│   ├── pantry_tool.py
-│   ├── search_tool.py
-│   ├── calorie_tool.py
-│   └── memory_tool.py
+│   ├── pantry_tool.py       # Reads pantry items
+│   ├── search_tool.py       # Web recipe search
+│   ├── calorie_tool.py      # Nutrition estimate helper
+│   └── memory_tool.py       # Agent memory support
+├── README.md                # Project overview and setup guide
+├── deploymen_steps.txt      # Deployment notes
+├── .gitignore
+├── .dockerignore
+└── LICENSE                  # License file (if present in your repository)
 ```
 
 ---
 
-## 🧪 How It Works
+## How it works
 
-1. You define a goal like `"lose weight"` and a diet like `"veg"` or `"meat"`  
-2. The agent looks at your pantry and constructs a search query  
-3. It uses a Gemini-powered LLM to plan and call tools  
-4. You get a final structured recipe with calorie estimation
+1. The user defines a goal, such as "lose weight".
+2. The agent checks the pantry inventory and identifies available ingredients.
+3. It constructs a targeted search query and searches for recipe ideas.
+4. The Gemini model plans a suitable recipe based on the ingredients and goals.
+5. The agent estimates calories and returns a final, structured meal suggestion.
 
 ---
 
-## 🛠️ Setup
+## Local setup
 
-### 1. Clone and enter the project
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/akshayk122/pantry-chef-agent.git
 cd pantry-chef-agent
 ```
 
-### 2. Create virtual environment
+### 2. Create a virtual environment
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # or `venv\Scripts\activate` on Windows
+source venv/bin/activate
+# On Windows: venv\Scripts\activate
 ```
 
 ### 3. Install dependencies
@@ -65,29 +96,31 @@ source venv/bin/activate  # or `venv\Scripts\activate` on Windows
 pip install -r requirements.txt
 ```
 
-Also install Gemini SDK:
-
-```bash
-pip install google-generativeai
-```
-
-### 4. Set your Gemini API Key
+### 4. Set your Gemini API key
 
 ```bash
 export GOOGLE_API_KEY="your-gemini-api-key"
 ```
 
+If you're using Windows PowerShell:
+
+```powershell
+$env:GOOGLE_API_KEY="your-gemini-api-key"
+```
+
 ---
 
-## ▶️ Run the Agent
+## Run the app
 
 ```bash
 python agent.py
 ```
 
+By default, the Flask app runs on port `8080` unless a different port is provided through the `PORT` environment variable.
+
 ---
 
-## 🧾 Sample pantry.json
+## Example pantry data
 
 ```json
 [
@@ -100,81 +133,85 @@ python agent.py
 
 ---
 
-## ✅ Sample Agent Output
+## Example output
 
-**Recipe:** Healthy Chicken Stir-Fry with Broccoli and Bell Pepper  
-**Yields:** 4 servings  
-**Time:** 20 minutes  
+```text
+Recipe: Healthy Chicken Stir-Fry with Broccoli and Bell Pepper
+Yields: 4 servings
+Time: 20 minutes
 
-**Description:**  
-A quick and healthy stir-fry featuring tender chicken, crisp broccoli, and bell pepper in a savory soy-ginger-garlic sauce. Great served over brown rice or quinoa for a balanced meal.
+Description:
+A quick and balanced stir-fry with tender chicken, broccoli, and bell pepper.
 
-**Ingredients:**
-- 1 lb (450g) chicken breasts, cut into 1-inch cubes  
-- 1 tablespoon olive oil  
-- 1 large head broccoli, cut into florets (about 4 cups)  
-- 1 red bell pepper, seeded and chopped  
-- **Sauce:** 1/4 cup low-sodium soy sauce, 2 tbsp honey, 1 tbsp rice vinegar, 2 cloves garlic (minced), 1 tsp fresh ginger (grated), 1 tsp cornstarch mixed with 1 tbsp water  
-- *(Optional: 1/2 tsp Sriracha or red pepper flakes for spice)*  
-- *(Optional garnish: green onions, sesame seeds)*
+Ingredients:
+- 1 lb chicken breast
+- 1 tbsp olive oil
+- 1 head broccoli
+- 1 red bell pepper
+- Soy sauce, garlic, ginger, and optional chili flakes
 
-**Instructions:**
-1. Whisk together sauce ingredients (soy sauce, honey, vinegar, garlic, ginger, optional Sriracha).  
-2. Heat olive oil in a large skillet/wok over medium-high heat. Cook chicken until browned (5–7 min); remove and set aside.  
-3. Add broccoli and bell pepper to the skillet; stir-fry until crisp-tender (4–5 min).  
-4. Return chicken to skillet. Pour sauce over everything and stir to coat.  
-5. Add cornstarch slurry; stir constantly until sauce thickens (1–2 min).  
-6. Serve immediately, optionally over brown rice or quinoa and with garnishes.
+Instructions:
+1. Sauté the chicken until cooked.
+2. Add vegetables and cook until vibrant and crisp.
+3. Mix in sauce and toss thoroughly.
+4. Serve warm with rice or quinoa.
 
-**Calorie Estimate (per serving):**
-- Tool Estimation: **~273 kcal**
-- Website Estimation: **~380 kcal**
-
-Enjoy your healthy meal!
-
-<img width="803" alt="image" src="https://github.com/user-attachments/assets/bb0b6e64-ec3b-4d02-a636-3783f3a1e431" />
-
+Calorie estimate:
+- Tool estimate: ~273 kcal per serving
+- Web estimate: ~380 kcal per serving
+```
 
 ---
 
-## 🧠 Tools Used
+## Tech stack
 
-
-- [`smolagents`](https://github.com/huggingface/smolagents) – lightweight agent framework used to develop the recipe agent with dynamic tool calling and planning  
-- [`google-generativeai`](https://pypi.org/project/google-generativeai/) – used to integrate the Gemini model as the core LLM behind recipe generation  
-- `DuckDuckGoSearchTool` – used as a web search tool to find relevant recipes and nutritional content online
-
----
-## 📊 Flow Chart
-![Recipe_Generator](https://github.com/user-attachments/assets/9975df7b-551b-4864-bae1-110e753ff762)
+- Python
+- Flask
+- Google Gemini API
+- `smolagents`
+- DuckDuckGo search integration
+- JSON-based pantry management
 
 ---
 
-## 🤝 Contributing
+## Future improvements
 
-Contributions are welcome! If you have ideas for new features, improvements, or bug fixes, please follow these steps:
-
-1.  **Fork the Repository:** Create your own fork of the project.
-2.  **Create a Branch:** Make a new branch in your fork for your changes.
-    ```bash
-    git checkout -b feature/your-feature-name
-    ```
-3.  **Make Changes:** Implement your feature or bug fix.
-4.  **Test Your Changes:** Ensure your changes work as expected and do not break existing functionality.
-5.  **Commit Your Changes:** Write clear and concise commit messages.
-    ```bash
-    git commit -m "Add: Your new feature description"
-    ```
-6.  **Push to Your Fork:**
-    ```bash
-    git push origin feature/your-feature-name
-    ```
-7.  **Submit a Pull Request:** Open a pull request from your fork to the main repository's `main` branch. Provide a clear description of your changes.
+- Add user authentication and saved profiles
+- Support meal planning for multiple days
+- Include grocery suggestions when pantry items are insufficient
+- Add image-based ingredient recognition
+- Improve recipe filtering for allergies and cuisines
 
 ---
 
-## 📜 License
+## Contributing
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+Contributions are welcome. If you'd like to improve the project, please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test the behavior locally
+5. Submit a pull request with a clear description
+
+Example:
+
+```bash
+git checkout -b feature/new-recipe-feature
+git commit -m "Add support for dietary filters"
+git push origin feature/new-recipe-feature
+```
 
 ---
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+---
+
+## A quick note
+
+PantryChef AI is designed to be practical, approachable, and useful in everyday cooking. The goal is not just to generate recipes, but to help people make better use of what they already have while reducing food waste and making meal planning easier.
+
+If you enjoy the project, feel free to star the repository and contribute new ideas.

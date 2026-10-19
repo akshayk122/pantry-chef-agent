@@ -1,5 +1,12 @@
 # PantryChef AI
 
+<div align="center">
+
+  <img src="https://github-readme-stats.vercel.app/api?username=akshayk122&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&border_radius=10&hide_title=true" height="165em" alt="GitHub Stats" />
+  <img src="https://streak-stats.demolab.com/?user=akshayk122&theme=tokyonight&hide_border=true&border_radius=10" height="165em" alt="GitHub Streak" />
+
+</div>
+
 PantryChef AI is a smart recipe assistant that turns what you already have at home into delicious, practical meal ideas. It combines your pantry inventory, dietary goals, and web research to suggest recipes that are relevant, nutritious, and easy to cook.
 
 Built with Google's Gemini model and the `smolagents` framework, PantryChef AI can reason through your ingredients, search for suitable recipes, estimate calories, and produce a final recommendation tailored to your needs.
